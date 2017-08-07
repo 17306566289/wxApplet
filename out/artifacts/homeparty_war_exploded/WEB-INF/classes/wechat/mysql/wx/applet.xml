@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+       Copyright 2009-2016 the original author or authors.
+
+       Licensed under the Apache License, Version 2.0 (the "License");
+       you may not use this file except in compliance with the License.
+       You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing, software
+       distributed under the License is distributed on an "AS IS" BASIS,
+       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+       See the License for the specific language governing permissions and
+       limitations under the License.
+
+-->
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="applet">
+<!--轰趴馆对象与列名的映射关系-->
+  <resultMap type="wechat.model.HomeParty" id="HomePartyResult">
+    <id column="ID" jdbcType="INTEGER" property="id"/>
+    <result column="NAME" jdbcType="VARCHAR" property="name"/>
+    <result column="PRICE" jdbcType="VARCHAR" property="price"/>
+    <result column="ADDRESS" jdbcType="VARCHAR" property="address"/>
+    <result column="LONGITUDE" jdbcType="VARCHAR" property="longitude"/>
+    <result column="LATITUDE" jdbcType="VARCHAR" property="latitude"/>
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
+    <result column="PHONENUMBER" jdbcType="VARCHAR" property="phoneNumber"/>
+    <result column="ICON_SHOW" jdbcType="VARCHAR" property="iconShow"/>
+    <collection property="imgPathList" resultMap="ImgPathResult"/>
+    <collection property="tagList"  resultMap="TagResult" />
+  </resultMap>
+
+  <!--icon图标对象与列名的映射关系-->
+  <resultMap type="wechat.model.Icon" id="IconResult">
+    <id column="ID" jdbcType="INTEGER" property="id"/>
+    <result column="IMG_PATH" jdbcType="VARCHAR" property="imgPath"/>
+    <result column="CONTENT" jdbcType="VARCHAR" property="content"/>
+  </resultMap>
+
+
+  <!--套餐对象与列名的映射关系-->
+  <resultMap type="wechat.model.MyPackage" id="PackageResult">
+    <id column="ID" jdbcType="INTEGER" property="id"/>
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
+    <result column="PRICE" jdbcType="INTEGER" property="price"/>
+    <result column="TOTAL" jdbcType="INTEGER" property="total"/>
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="IMG_PATH" jdbcType="VARCHAR" property="imgPath"/>
+  </resultMap>
+
+
+  <!--标签路径对象与列名的映射关系-->
+  <resultMap type="wechat.model.Tag" id="TagResult">
+    <id column="T_ID" jdbcType="INTEGER" property="id"/>
+    <result column="CONTENT" jdbcType="VARCHAR" property="content"/>
+  </resultMap>
+
+
+  <!--图片对象与列名的映射关系-->
+  <resultMap type="wechat.model.ImgPath" id="ImgPathResult">
+    <id column="P_ID" jdbcType="INTEGER" property="id"/>
+    <result column="IMG_PATH" jdbcType="VARCHAR" property="path"/>
+  </resultMap>
+
+
+
+  <!--商品及数量与商品表的映射关系-->
+  <resultMap type="wechat.model.ProductItem" id="ProductItemResult">
+    <association  property="product" column="ID" select="getProductById"/>
+  </resultMap>
+
+
+
+  <!--套餐内商品及数量与表的映射关系-->
+  <resultMap type="wechat.model.ProductItem" id="PackageProductResult">
+    <result column="QUANTITY" jdbcType="INTEGER" property="quantity"/>
+   <association  property="product" column="PRODUCT_ID" select="getProductById"/>
+  </resultMap>
+
+
+  <!--商品与列名的映射关系-->
+  <resultMap type="wechat.model.Product" id="ProductResult">
+    <id column="ID" jdbcType="INTEGER" property="id"/>
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
+    <result column="PRICE" jdbcType="INTEGER" property="price"/>
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="IMG_PATH" jdbcType="VARCHAR" property="imgPath"/>
+    <result column="CLASS_ID" jdbcType="INTEGER" property="classId"/>
+  </resultMap>
+
+
+  <!--获得Icon的信息 返回所有的Icon-->
+  <select id="getAllIcon" resultMap="IconResult">
+    SELECT ID,CONTENT,IMG_PATH  FROM HOME_PARTY_ICON
+  </select>
+
+
+<!--获得HomeParty的信息 返回所有的HomeParty-->
+  <select id="getAllHomeParty" resultMap="HomePartyResult">
+    SELECT a.ID,a.NAME,a.PRICE,b.CONTENT,b.ID T_ID,c.ID P_ID,c.IMG_PATH FROM HOME_PARTY a LEFT JOIN TAG b  ON a.ID=b.HOME_PARTY_ID
+    LEFT JOIN IMG_PATH c ON a.ID=c.HOME_PARTY_ID
+  </select>
+
+
+  <!--获得HomeParty的信息 根据ID返回HomeParty-->
+  <select id="getHomePartyById" resultMap="HomePartyResult" parameterType="int">
+    SELECT a.ID,a.NAME,a.PRICE,a.ADDRESS,a.LONGITUDE,a.PHONENUMBER,a.LATITUDE,
+    a.DESCRIPTION,a.ICON_SHOW,b.CONTENT,b.ID T_ID,c.ID P_ID,c.IMG_PATH
+    FROM HOME_PARTY a LEFT JOIN TAG b  ON a.ID=b.HOME_PARTY_ID
+    LEFT JOIN IMG_PATH c ON a.ID=c.HOME_PARTY_ID WHERE 1=1
+    <if test="_parameter!=-1">AND a.ID=#{id}</if>
+  </select>
+
+  <!--getProductById 根据id获得产品-->
+  <select id="getProductById" resultMap="ProductResult" parameterType="int">
+    SELECT ID,NAME,PRICE,
+    DESCRIPTION,IMG_PATH,CLASS_ID
+    FROM Product WHERE ID=#{id}
+  </select>
+
+  <!--getProductsByPackageId 根据套餐id获得套餐内的产品和数量-->
+  <select id="getProductsByPackageId" resultMap="PackageProductResult" parameterType="int">
+    SELECT ID,PACKAGE_ID,PRODUCT_ID,QUANTITY
+    FROM package_product WHERE PACKAGE_ID=#{packageId}
+  </select>
+
+
+  <!--getProductsByClassId 根据类型id获得商品实例-->
+  <select id="getProductsByClassId" resultMap="ProductItemResult" parameterType="int">
+    SELECT ID,CLASS_ID
+    FROM product WHERE CLASS_ID=#{classId}
+  </select>
+
+<!--getPackageById-->
+  <select id="getPackageById" resultMap="PackageResult" parameterType="int">
+    SELECT ID,NAME,PRICE,
+    DESCRIPTION,IMG_PATH,HOME_PARTY_ID,TOTAL
+    FROM Package WHERE ID=#{id}
+  </select>
+
+
+  <!--getPackagesByHomePartyId 获得Package 根据HomePartyID返回Package-->
+  <select id="getPackagesByHomePartyId" resultMap="PackageResult" parameterType="int">
+    SELECT ID,NAME,PRICE,
+    DESCRIPTION,IMG_PATH,HOME_PARTY_ID,TOTAL
+    FROM Package WHERE HOME_PARTY_ID=#{homePartyId}
+  </select>
+
+
+</mapper>

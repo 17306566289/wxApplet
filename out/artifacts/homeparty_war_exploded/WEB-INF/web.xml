@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>DetailShowServlet</servlet-name>
+        <servlet-class>wechat.servlet.DetailShowServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DetailShowServlet</servlet-name>
+        <url-pattern>/servlet.Detail</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>IndexShowServlet</servlet-name>
+        <servlet-class>wechat.servlet.IndexShowServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IndexShowServlet</servlet-name>
+        <url-pattern>/servlet.Index</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ReserveShowServlet</servlet-name>
+        <servlet-class>wechat.servlet.ReserveShowServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ReserveShowServlet</servlet-name>
+        <url-pattern>/servlet.Reserve</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>PackageListServlet</servlet-name>
+        <servlet-class>wechat.servlet.PackageListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PackageListServlet</servlet-name>
+        <url-pattern>/servlet.PackageList</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>ShopServlet</servlet-name>
+        <servlet-class>wechat.servlet.ShopServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShopServlet</servlet-name>
+        <url-pattern>/servlet.Shop</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GetMonthServlet</servlet-name>
+        <servlet-class>wechat.servlet.GetMonthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetMonthServlet</servlet-name>
+        <url-pattern>/servlet.GetMonth</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>CreateOrderServlet</servlet-name>
+        <servlet-class>wechat.servlet.CreateOrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateOrderServlet</servlet-name>
+        <url-pattern>/servlet.CreateOrder</url-pattern>
+    </servlet-mapping>
+</web-app>
