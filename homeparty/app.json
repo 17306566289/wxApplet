@@ -1,0 +1,38 @@
+{
+  "pages": [
+    
+   "pages/index/index",
+    "pages/reserve/reserve",
+  "pages/order/order",
+    "pages/packagelist/packagelist",
+    "pages/detail/detail",
+    "pages/my/my",
+    "pages/shop/shop",
+    "pages/map/map"
+   
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff100",
+    "navigationBarTitleText": "玩家轰趴馆",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#fff100",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_c.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/my.png",
+        "selectedIconPath": "images/my_c.png"
+      }
+    ]
+  }
+}

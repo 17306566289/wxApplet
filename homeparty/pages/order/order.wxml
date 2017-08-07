@@ -1,0 +1,99 @@
+<form bindsubmit="orderSubmit">
+
+  <view class="container">
+
+    <!--显示地点和预定时间  -->
+    <view class="selection">
+      <view>{{homeParty.name}}</view>
+      <view class="time" wx:if="{{reserveDay.isDay}}">
+        入场：{{reserveDay.month}}月{{reserveDay.day}}日 9：00 离场：{{reserveDay.month}}月{{reserveDay.day}}日 17：00</view>
+      <view class="time" wx:if="{{!reserveDay.isDay}}">
+        入场：{{reserveDay.month}}月{{reserveDay.day}}日 9：00 离场：翌日 17：00</view>
+    </view>
+
+    <!--输入入住人信息  -->
+    <view class="selection">
+      <view class="input-container">
+        <view>入住人数</view>
+        <input type="number" name="peopleNum" placeholder="请输入人数" confirm-type="next" />
+      </view>
+      <view class="input-container">
+        <view>姓名</view>
+        <input type="view" name="name" placeholder="请输入姓名" confirm-type="next" />
+      </view>
+      <view class="input-container">
+        <view>手机号码</view>
+        <input type="number" name="phoneNum" placeholder="请输入手机号码" confirm-type="next" />
+      </view>
+      <view class="input-container">
+        <view>身份证号码</view>
+        <input type="number" name="idCard" placeholder="请输入身份证号码" confirm-type="next" />
+      </view>
+    </view>
+    <!--押金和额外消费  -->
+    <view class="selection">
+      <view class="input-container" bindtap="packageBtnClick">
+        <view>套餐</view>
+        <label>{{myPackage.name}}</label>
+        <image src="../../images/right.png"></image>
+      </view>
+      <view class="input-container" bindtap="cartBtnClick">
+        <view>额外消费</view>
+        <label class="money">¥{{cartPrice}}</label>
+        <image src="../../images/right.png"></image>
+      </view>
+      <view class="input-container">
+        <view>押金</view>
+        <label class="money">¥1000</label>
+      </view>
+    </view>
+    <!--邀请码 优惠券 备注  -->
+    <view class="selection">
+      <view class="input-container">
+        <view>邀请码</view>
+        <input type="number" name="visitedNum" placeholder="请输入邀请码(选填)" confirm-type="next" />
+      </view>
+      <view class="input-container">
+        <view>学生证号</view>
+        <input type="number" name="studentId" placeholder="请输入学生证号(选填)" confirm-type="next" />
+      </view>
+      <view class="input-container">
+        <view>优惠券</view>
+        <view>请选择</view>
+      </view>
+      <view class="input-container">
+        <view>订单备注</view>
+        <textarea placeholder="可输入300字" maxlength="300" />
+      </view>
+    </view>
+
+    <!--结算 -->
+    <view class="selection">
+      <view class="price-detail">
+        <view class="">房间:¥{{basePrice}}</view>
+        <view class="">套餐:¥{{packagePrice}}</view>
+        <view class="">额外消费:¥{{cartPrice}}</view>
+        <view class="">押金:¥1000</view>
+        <view class="" wx:if="{{false}}">优惠:</view>
+      </view>
+      <view class="final-price">订单总价:¥{{total}}</view>
+    </view>
+
+    <!--会员协议 -->
+    <view class="selection">
+      <view class="warning">如果取消订单或没有入住，预付定金不予退还。 到场需出示身份证及两张以上学生证，如果不符合所填写的证件信息， 将从押金里扣除折扣价。
+      </view>
+      <checkbox value="value" checked="false" />
+      <view class="agree">我同意 <text>《会员公约》</text></view>
+    </view>
+
+  </view>
+
+  <!--底部栏  -->
+  <view class="total">
+    <view class="price">需支付:<text class="number">¥{{total+1000}}</text> </view>
+    <button class="confirm" bindtap="confirm" form-type="submit">支付</button>
+  </view>
+
+
+</form>

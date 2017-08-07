@@ -1,0 +1,32 @@
+.list-item{
+width: 100%;
+}
+.list-item-img image{
+  width: 100%;
+  height: 500rpx;
+}
+.list-item-content{
+  padding: 15rpx;
+  display: flex;
+  flex-wrap: wrap;
+justify-content: space-between
+}
+.list-item-content-title{
+font-size: 17pt
+}
+.list-item-content-price{
+font-size: 17pt;
+color: #ffcc00;
+font-weight: 700;
+}
+.list-item-content-tags{
+  display: flex;
+  flex-wrap: wrap;
+}
+.tag{
+  border: 1px solid #999;
+  font-size: 10pt;
+  padding: 2px;
+  color: #999;
+  margin: 10rpx
+}

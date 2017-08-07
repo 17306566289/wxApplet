@@ -1,0 +1,23 @@
+<view class="container">
+
+
+    <view class="heading">{{myPackage.name}}</view>
+    <view class="list">
+      <view class="item" wx:for="{{list}}">
+          <image class="item-left" src="../../images/guazi.jpg"></image>
+          <view  class="item-middle" >
+            <view class="item-middle-head">{{item.product.name}}</view>
+            <view class="item-middle-content">{{item.product.description}}</view>
+          </view>
+          <view class="item-right">
+         
+             <view class=" item-right-price">¥{{item.product.price}}×{{item.quantity}}</view>
+          </view>
+        </view>
+    </view>
+
+</view>
+<view class="total">
+  <view class="titalprice">合计：¥{{myPackage.total}}</view>
+    <view class="packageprice">套餐价:<text class="number">¥{{myPackage.price}}</text> </view>
+</view>

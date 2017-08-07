@@ -1,0 +1,47 @@
+<view class="container" bindtap="cartOutFocus">
+
+
+    <view class="heading">
+      <view class="kind" bindtap="classBtnClick" data-class="0"><image src="../../images/snacks.png"></image><view class="kind-text">休闲小吃</view> </view>
+      <view class="kind" bindtap="classBtnClick" data-class="1"><image src="../../images/food.png"></image><view class="kind-text">充饥必备</view> </view>
+      <view class="kind" bindtap="classBtnClick" data-class="2"><image src="../../images/service.png"></image><view class="kind-text">酒水饮料</view> </view>
+      <view class="kind" bindtap="classBtnClick" data-class="3"><image src="../../images/wine.png"></image><view class="kind-text">其他服务</view> </view>
+    </view>
+    <view class="list">
+      <view class="item" wx:for="{{selectedList}}">
+          <image class="item-left" src="../../images/guazi.jpg"></image>
+          <view  class="item-middle" >
+            <view class="item-middle-head">{{item.product.name}}</view>
+            <view class="item-middle-content">{{item.product.description}}</view>
+          </view>
+          <view class="item-right">
+         
+             <view class=" item-right-price">￥{{item.product.price}}</view>
+             <view class="item-right-quantity">
+                <image class="subtract" src="../../images/subtract.png" wx:if="{{item.quantity!=0}}"  bindtap="sub" data-index="{{index}}"/>
+                <view class="num">{{item.quantity}}</view>
+                <image class="add" src="../../images/add.png" bindtap="add" data-index="{{index}}"/>
+             </view>
+          </view>
+        </view>
+    </view>
+
+</view>
+
+
+<view class="shoppinglist" wx:if="{{shoppingListShow}}">
+  <view class="shoppinglist-class" wx:for="{{productList}}" wx:for-item="class" wx:for-index="index1">
+    <view class="shoppinglist-classname">{{productClass[index1]}}</view>
+    <view class="shoppinglist-item" wx:for="{{class}}" wx:if="{{item.quantity>0}}"  wx:for-index="index2">
+      <view class="shoppinglist-item-name">{{item.product.name}}×{{item.quantity}}</view>
+      <image src="../../images/delete.png" data-findex="{{index1}}" data-sindex="{{index2}}" bindtap="cartItemDeleteBtn" class="shoppinglist-item-delete"></image>
+    </view>
+  </view>
+</view>
+<view class="total">
+    <image src="../../images/cart.png" bindtap="cartBtn">
+      <view class="cartNum">{{cartNum}}</view>
+    </image>
+    <view class="packageprice">合计:<text class="number">￥{{cartTotal}}</text> </view>
+    <view class="confirm" bindtap="confirm">确认</view>
+</view>

@@ -1,0 +1,104 @@
+.packageselect{
+  padding: 10px;
+}
+.timeselect-top{
+  display: flex;
+  justify-content: space-between;
+}
+picker-view-column image{
+  height: 100%;
+  width: 100rpx
+}
+.package-left{
+width: 200rpx;
+height: 200rpx;
+padding: 20rpx ;
+background-color: white;
+}
+.package{
+  display: flex;
+  border-top: 1px solid #ccc;
+
+}
+.package-middle{
+  width: 500rpx;
+  padding: 20rpx
+}
+.package-middle-content{
+ font-size: 10pt;
+ color: #999;
+}
+.package-right{
+  padding-top: 20rpx;
+  padding-right: 20rpx;
+  width: 100rpx;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items:flex-end;
+}
+.package-middle-head{
+  color: #f4ea2a;
+}
+.package-right-price{
+  color: #d81e06;
+  font-size: 12pt;
+  margin-bottom: 15rpx;
+
+}
+.package-right image{
+  width: 50rpx;
+  height: 50rpx;
+  
+}
+.exshop{
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #aaa;
+  padding: 20rpx 20rpx;
+  
+}
+.exshop-price{
+  color:  #d81e06
+}
+.active{
+  background-color: #feee3a;
+}
+.active .package-middle-head{
+ color: white;
+}
+/*日历  */
+.calendar-head{
+  display: flex;
+  justify-content: space-between
+}
+.calendar .picker{
+margin: 0 20rpx;
+}
+.calendar-head .picker image{
+width: 40rpx;
+height: 40rpx;
+}
+.calendar-main{
+  flex-wrap: wrap;
+  display: flex;
+  padding: 15rpx 0rpx 15rpx 20rpx;
+  border-top: 1px solid #555;
+   border-bottom: 1px solid #555;
+ margin-top: 30rpx;
+}
+.weekday{
+  font-weight: 700
+}
+.calendar-main-day{
+  width: 94rpx;
+  text-align: center;
+  margin: 15rpx 0;
+}
+.pastDays{
+  color: #aaa;
+}
+.calendar-main-day image{
+  width: 50rpx;
+ height: 50rpx;
+}

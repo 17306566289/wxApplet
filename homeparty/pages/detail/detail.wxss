@@ -1,0 +1,119 @@
+swiper{
+width: 100%;
+height: 400rpx
+}
+
+swiper image{
+  width: 100%;
+  height: 100%;
+}
+.address{
+  padding: 10rpx}
+ .address text{
+ margin-left: 10rpx}
+.address image{
+  width: 35rpx;
+  height: 35rpx;
+}
+.header-content{
+  padding: 15rpx;
+  display: flex;
+  flex-wrap: wrap;
+justify-content: space-between
+}
+.header-content-title{
+font-size: 17pt;
+width: 100%;
+padding: 6rpx
+}
+
+.header-content-tags{
+  display: flex;
+  flex-wrap: wrap;
+}
+.tag{
+  border: 1px solid #999;
+  font-size: 10pt;
+  padding: 2px;
+  color: #999;
+  margin: 10rpx
+}
+
+
+.discription-title{
+background-color: #fff100;
+display: inline-block;
+border-radius: 15%;
+font-size: 10pt;
+padding: 5px;
+margin: 15rpx 0;
+}
+.discription-container{
+  display:flex;
+  flex-wrap: wrap;
+}
+.discription-icon{
+  width:100rpx;
+  padding: 15rpx 21rpx;
+}
+.discription-icon image{
+  width:100%;
+  height: 100rpx;
+  
+}
+.discription-icon-text{
+font-size: 12pt;
+color: #999;
+text-align: center;
+width:100%
+}
+.discription-text{
+  color: #555;
+  font-size: 12pt;
+  padding: 20rpx;
+  text-indent: 60rpx;
+}
+.menu{
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  width: 100%;
+  background-color:white;
+border-top: 1px solid #aaa;
+}
+.price{
+  width: 190rpx;
+ height: 100%;
+vertical-align: bottom;
+line-height:  90rpx;
+ float: left;
+ font-size: 12pt;
+color: #ff0000;
+font-weight: 700;
+margin: 7rpx;
+
+}
+.menu-icons{
+  margin-top: 10rpx;
+  width: 120rpx;
+  float: right;
+}
+.menu-icons image{
+  width:50rpx;
+  height: 50rpx;
+  margin: 0 35rpx;
+}
+.menu-icons-text{
+ font-size: 9pt;
+text-align: center;
+color: #555;
+}
+.reserve{
+  text-align: center;
+  font-size: 17pt;
+   float: right;
+  width: 140rpx;
+  background-color: #fff100;
+  height: 100%;
+  padding: 20rpx 40rpx;
+}

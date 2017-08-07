@@ -1,0 +1,160 @@
+
+.heading{
+  margin: 0;
+  padding: 30rpx 30rpx 0 30rpx;
+  font-size: 11pt;
+text-align: center;
+display: flex;
+flex-wrap: wrap;
+}
+/*分类  */
+.kind{
+  margin: 5rpx;
+  width:333rpx;
+  height: 110rpx;
+border: 1px solid #ddd;
+box-shadow: 0px 2px 5px #ccc;
+padding-top: 15rpx;
+line-height: 100%;
+}
+
+.kind image{
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 10rpx;
+}
+.kind-text{
+  color: #555;
+font-size: 10pt;
+margin: 10rpx;
+}
+/*商品清单  */
+.item{
+  margin:20rpx 40rpx;
+  display: flex;
+  border-radius:10rpx;
+  border: 1px solid #ddd;
+box-shadow: 0px 2px 10px  #ccc;
+padding: 10rpx 15rpx 5rpx 5rpx;
+}
+.item-left{
+width: 180rpx;
+height: 180rpx;
+padding: 10rpx ;
+background-color: white;
+}
+
+.item-middle{
+  width: 500rpx;
+  padding: 20rpx
+}
+.item-middle-content{
+ font-size: 10pt;
+ color: #999;
+}
+.item-right{
+  padding-top: 20rpx;
+  width: 100rpx;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items:flex-end;
+}
+.item-middle-head{
+  color: #f4ea2a;
+}
+.item-right-price{
+  color: #d81e06;
+  font-size: 12pt;
+  margin-bottom: 15rpx;
+margin-right: 15rpx;
+}
+.item-right-quantity{
+  display: flex;
+}
+.add{
+  width: 10rpx;
+}
+.item-right image{
+  width: 40rpx;
+  height:40rpx;
+  margin:  0 10rpx;
+}
+/* 购物车 */
+.shoppinglist{
+   position: fixed;
+  bottom: 100rpx;
+  width: 100%;
+}
+.shoppinglist-item{
+  display: flex;
+  justify-content: space-between;
+  padding: 5rpx;
+  border: 1px solid #eee;
+  background-color: #eee;
+}
+.shoppinglist-classname{
+ background-color: #ddd;
+ text-indent: 10rpx;
+ padding: 10rpx 0;
+ font-size: 10pt;
+}
+.shoppinglist-item-name{
+  text-indent: 20rpx;
+font-size: 10pt;
+vertical-align: middle;
+}
+.shoppinglist-item-delete{
+ height: 40rpx;
+  width:40rpx;
+}
+
+/*底部栏  */
+.total{
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  width: 100%;
+background-color: #fff100;
+}
+.confirm{
+ height: 100%;
+ line-height: 100rpx;
+ width: 200rpx;
+ text-align: center;
+  color: red;
+  font-size: 15pt;
+ float: right;
+ border-left: 2px solid white;
+}
+.packageprice{
+  margin: 25rpx 40rpx;
+  color: red;
+  font-size: 9pt;
+  float: left;
+}
+.number{
+  font-size: 15pt;
+}
+.total image{
+  float: left;
+  height:80%;
+  width:80rpx;
+  background-color: white;
+  padding: 10rpx;
+  padding-right: 40rpx;
+  position: relative;
+}
+.cartNum{
+ 
+  font-size: 11pt;
+  position: relative;
+  top: -90rpx;
+  left: 70rpx;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 40rpx;
+  height: 40rpx;
+  text-align: center;
+}

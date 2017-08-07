@@ -1,0 +1,89 @@
+<view class="container">
+    <view class="packageselect">
+      <view class="heading">基础套餐</view>
+      <view class="packages">
+        <view class="package {{currentItem==index?'active':''}}" data-index="{{index}}" bindtap="tagChoose" wx:for="{{packages}}" data-price="{{item.price}}">
+          <image class="package-left" src="../../images/package1.jpg"></image>
+          <view  class="package-middle" >
+            <view class="package-middle-head">{{item.name}}</view>
+            <view class="package-middle-content">是对方立刻就打算开房间爱来到放假了减肥啊 艾莉婕覅</view>
+          </view>
+          <view class="package-right">
+            <image class="package-right-list" src="../../images/list.png" catchtap="listBtnClick" data-Id="{{item.id}}"></image>
+             <view class="package-right-price">¥{{item.price}}</view>
+          </view>
+        </view>
+      </view>
+      
+      <view class="exshop" bindtap="exshop">
+        <view class="exshop-text">额外选购</view>
+        <view class="exshop-price">¥{{cartPrice}}</view>
+      </view>
+
+
+    </view>
+
+
+
+
+
+    <view class="timeselect selection">
+        <view class="timeselect-top">
+            <view class="heading">选择时间</view>
+            <!-- <view class="heading">{{year}}年{{month}}月{{day}}日<text wx:if="{{dayornight}}">早场</text><text wx:if="{{!dayornight}}">夜场</text></view> -->
+        </view>
+      <view class="calendar-head">
+          <picker bindchange="yearChange" value="0" range="{{years}}">
+            <view class="picker">
+                {{year}}年
+                <image src="../../images/select.png"></image>
+            </view>
+            </picker>
+            <picker  bindchange="monthChange" value="0" range="{{months}}">
+              <view class="picker">
+                  {{month}}月
+                  <image src="../../images/select.png"></image>
+              </view>
+            </picker>
+      </view> 
+
+        <view class="calendar-main">
+            <view class="calendar-main-day weekday" wx:for="{{week}}">{{item}}</view>
+             <view class="calendar-main-day" wx:for="{{blank}}">{{item}}</view>
+             <view class="calendar-main-day pastDays" wx:for="{{pastDays}}">{{item}}</view>
+             <view class="calendar-main-day" wx:for="{{days}}" data-day="{{item.day}}" bindtap="dayClick">
+                <image src="../../images/night.png" class="" wx:if="{{!item.dayIsReserved&&item.nightIsReserved}}"></image>
+                <image src="../../images/day.png" class="" wx:if="{{item.dayIsReserved&&!item.nightIsReserved}}"></image>
+                <view class="" wx:if="{{item.dayIsReserved&&item.nightIsReserved}}">预</view>
+                <view class="" wx:if="{{!item.dayIsReserved&&!item.nightIsReserved&&item.myReserve==null}}">{{item.day}}</view>
+                 <image src="../../images/night.png" class="" wx:if="{{item.myReserve=='night'}}"></image>
+                  <image src="../../images/day.png" class="" wx:if="{{item.myReserve=='day'}}"></image>
+             </view>
+        </view>
+
+
+
+
+    
+    
+    </view>
+
+
+
+
+</view>
+
+
+
+  <view class="menu">
+
+      <view class="price">合计：￥{{total}}</view>
+      
+       <view class="reserve" bindtap="comfirm">确认</view>
+       <view class="menu-icons" bindtap="phone">
+        <image src="../../images/phone.png"></image>
+        <view class="menu-icons-text">联系电话</view>
+      </view>
+    
+     
+  </view>

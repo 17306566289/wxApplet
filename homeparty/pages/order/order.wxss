@@ -1,0 +1,124 @@
+.time{
+  font-size: 11pt;
+  color: #777;
+}
+.input-container{
+  display: flex;
+  border-bottom: 1px solid #aaa;
+  padding: 25rpx 0;
+  flex-wrap: wrap;
+}
+.input-container view,label{
+font-size: 12pt;
+height: 26px;
+line-height: 26px;
+margin-right: 20rpx;
+width: 200rpx;
+color: #444;
+}
+.input-container label{
+margin-right: 240rpx;
+}
+.input-container image{
+width: 35rpx;
+height: 35rpx;
+align-self: center
+}
+.input-container input{
+font-size: 12pt;
+width: 400rpx;
+}
+
+.input-container textarea{
+  margin-top: 10rpx;
+font-size: 11pt;
+border: 1px solid #555;
+width: 100%;
+height: 200rpx;
+padding: 10rpx;
+}
+.money{color: red;}
+/*价格明细  */
+.price-detail{
+  padding: 0rpx 20rpx 20rpx;
+    border-bottom: 1px solid #999;
+}
+.price-detail view{
+font-size: 10pt;
+color: #333;
+}
+.final-price{
+margin: 20rpx;
+font-size: 13pt;
+}
+/*会员条件  */
+.warning{
+  font-size: 11pt;
+
+}
+.agree{
+  font-size: 11pt;
+  display: inline;
+}
+.agree text{
+ color: red;
+text-decoration: underline;
+}
+/*底部栏  */
+.total{
+  z-index: 9999;
+  position: fixed;
+  bottom: 0;
+  height: 90rpx;
+  width: 100%;
+  border-top: 1px solid #aaa;
+background-color: white;
+}
+.confirm{
+ height: 100%;
+ line-height: 90rpx;
+ width: 230rpx;
+ text-align: center;
+  color: red;
+  font-size: 15pt;
+ float: right;
+ border-left: 2px solid white;
+ background-color: #fff100;
+}
+.price{
+   line-height: 90rpx;
+  margin: 0 40rpx;
+  font-size: 9pt;
+  float: left;
+  color: black;
+}
+.number{
+  font-size: 15pt;
+  color: red;
+}
+.total image{
+  float: left;
+  height:90rpx;
+  width:80rpx;
+  background-color: white;
+  padding: 10rpx;
+  padding-right: 40rpx;
+  position: relative;
+}
+.cartNum{
+ 
+  font-size: 11pt;
+  position: relative;
+  top: -90rpx;
+  left: 70rpx;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 40rpx;
+  height: 40rpx;
+  text-align: center;
+}
+button{
+  border-radius: 0;
+  border:0 solid #333;
+}

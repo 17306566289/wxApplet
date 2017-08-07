@@ -1,0 +1,57 @@
+.selection{
+  border-top: 6px solid #eee;
+  padding: 10px;
+}
+.container{
+  padding-bottom: 150rpx;
+}
+.heading{
+  margin: 8px 0;
+}
+.menu{
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  width: 100%;
+  background-color:white;
+border-top: 1px solid #aaa;
+z-index:9999;
+}
+.price{
+  width: 250rpx;
+ height: 100%;
+vertical-align: bottom;
+line-height:  90rpx;
+ float: left;
+ font-size: 12pt;
+color: #ff0000;
+font-weight: 700;
+margin: 7rpx;
+
+}
+.menu-icons{
+  margin-top: 10rpx;
+  width: 120rpx;
+  float: right;
+}
+.menu-icons image{
+  width:50rpx;
+  height: 50rpx;
+  margin: 0 35rpx;
+}
+.menu-icons-text{
+ font-size: 9pt;
+text-align: center;
+color: #555;
+}
+.reserve{
+  color: white;
+  text-align: center;
+  font-size: 15pt;
+  font-weight: 700;
+   float: right;
+  width: 140rpx;
+  background-color: #fff100;
+  height: 100%;
+  padding: 24rpx 40rpx;
+}

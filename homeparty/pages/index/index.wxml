@@ -1,0 +1,22 @@
+<view>
+<!--每一家轰趴馆 循环  -->
+  <view class="list-item" wx:for="{{homePartyList}}" data-id="{{item.id}}" bindtap="onClick">
+  
+    <view class="list-item-img">
+      <image src="{{item.imgPathList[0].path}}"></image>
+    </view>
+    <view class="list-item-content">
+      <view class="list-item-content-title">{{item.name}}</view>
+      <view class="list-item-content-price">¥{{item.price}}起</view>
+      <view class="list-item-content-tags">
+      <!--标签循环  -->
+        <view class="tag" wx:for="{{item.tagList}}">
+        {{item.content}}
+        </view>
+      
+      </view>
+    </view>
+  </view>
+
+
+</view>
